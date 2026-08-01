@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rivaah – Aditi & Samrat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ==================== OPENING / SLIDE UNLOCK ==================== -->
+    <div id="opening-screen" class="opening-screen">
+        <div id="start-waterfall" class="start-waterfall"></div>
+        <div class="opening-content">
+            <h1 class="opening-title" id="openingTitle">RIVAAH</h1>
+            <p class="opening-subtitle" id="openingSubtitle">Aditi &amp; Samrat</p>
+            <div class="slide-button" id="slideButton">
+                <div class="slide-track">
+                    <div class="slide-landscape">
+                        <div class="slide-mountains"></div>
+                        <div class="slide-moon"></div>
+                        <div class="slide-cloud"></div>
+                        <div class="slide-stars"></div>
+                    </div>
+                </div>
+                <div class="slide-handle" id="slideHandle">
+                    <span class="slide-arrow">&rsaquo;</span>
+                </div>
+                <div class="slide-text">Slide to Open</div>
+            </div>
+            <p class="slide-instruction">Slide button to open the website</p>
+        </div>
+    </div>
+
+    <!-- ==================== MAIN CONTENT (hidden initially) ==================== -->
+    <div id="main-content" class="main-content" style="display:none; position: relative;">
+
+        <!-- SVG Definitions for Curved Stream Masks -->
+        <svg width="0" height="0" style="position:absolute;">
+            <defs>
+                <!-- Left stream curve: straight left, curved right -->
+                <clipPath id="leftStreamClip" clipPathUnits="objectBoundingBox">
+                    <path d="M 0.2,0 L 0.2,1 L 0.6,1 Q 1,0.5 0.6,0 Z" />
+                </clipPath>
+                <!-- Right stream curve: curved left, straight right -->
+                <clipPath id="rightStreamClip" clipPathUnits="objectBoundingBox">
+                    <path d="M 0.8,0 L 0.8,1 L 0.4,1 Q 0,0.5 0.4,0 Z" />
+                </clipPath>
+            </defs>
+        </svg>
+
+        <!-- Continuous Waterfalls (Curved Passages) -->
+        <div id="continuous-waterfall-left" class="stream-container left-stream">
+            <div class="water-flow" style="clip-path: url(#leftStreamClip);"></div>
+            <svg class="stream-borders" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <!-- Straight left line -->
+                <line x1="20" y1="0" x2="20" y2="100" stroke="#d4af37" stroke-width="2" vector-effect="non-scaling-stroke" />
+                <!-- Curved right line -->
+                <path d="M 60,100 Q 100,50 60,0" stroke="#d4af37" stroke-width="2" vector-effect="non-scaling-stroke" fill="none" />
+            </svg>
+        </div>
+        
+        <div id="continuous-waterfall-right" class="stream-container right-stream">
+            <div class="water-flow" style="clip-path: url(#rightStreamClip);"></div>
+            <svg class="stream-borders" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <!-- Straight right line -->
+                <line x1="80" y1="0" x2="80" y2="100" stroke="#d4af37" stroke-width="2" vector-effect="non-scaling-stroke" />
+                <!-- Curved left line -->
+                <path d="M 40,100 Q 0,50 40,0" stroke="#d4af37" stroke-width="2" vector-effect="non-scaling-stroke" fill="none" />
+            </svg>
+        </div>
+
+        <!-- ===== SECTION 1: HERO ===== -->
+        <section class="section hero-section" id="hero">
+            <!-- Clouds top left -->
+            <svg class="cloud cloud-tl" viewBox="0 0 200 100" width="200" height="100">
+                <path d="M10,80 Q10,50 30,45 Q30,20 60,20 Q90,20 90,45 Q110,40 120,55 Q130,55 130,70 Q130,80 110,80 Z"
+                    fill="none" stroke="#1a1a1a" stroke-width="1.5" />
+            </svg>
+            <!-- Clouds top right -->
+            <svg class="cloud cloud-tr" viewBox="0 0 200 100" width="200" height="100">
+                <path d="M10,80 Q10,50 30,45 Q30,20 60,20 Q90,20 90,45 Q110,40 120,55 Q130,55 130,70 Q130,80 110,80 Z"
+                    fill="none" stroke="#1a1a1a" stroke-width="1.5" />
+            </svg>
+
+            <!-- Moon -->
+            <div class="moon-circle">
+                <span class="moon-text">Moon</span>
+            </div>
+
+            <!-- Water falling text -->
+            <p class="water-falling-text">Water falling<br><em>(like it falls from Shiva's head)</em></p>
+
+            <!-- Gold vertical lines -->
+            <div class="gold-line gold-line-left"></div>
+            <div class="gold-line gold-line-right"></div>
+
+            <!-- Shiva-Parvati illustration area -->
+            <div class="illustration hero-illustration">
+                <!-- SVG Shiva Parvati line art -->
+                <svg viewBox="0 0 400 250" width="320" height="200" class="shiv-parvati-svg">
+                    <!-- Shiva (left figure) -->
+                    <g class="shiva-figure" stroke="#1a1a1a" stroke-width="1.2" fill="none">
+                        <!-- Head -->
+                        <circle cx="150" cy="60" r="18" />
+                        <!-- Hair/Jata -->
+                        <path d="M132,55 Q120,30 140,20 Q150,15 155,25" />
+                        <path d="M140,20 Q145,5 155,8 Q160,12 155,25" />
+                        <!-- Moon on head -->
+                        <path d="M155,30 A6,6 0 0,1 162,35" stroke-width="1" />
+                        <!-- Body -->
+                        <path d="M140,78 Q135,110 130,150" />
+                        <path d="M160,78 Q165,110 170,150" />
+                        <!-- Arms -->
+                        <path d="M135,90 Q115,100 110,80" />
+                        <!-- Trishul -->
+                        <line x1="110" y1="80" x2="105" y2="30" />
+                        <line x1="105" y1="30" x2="95" y2="25" />
+                        <line x1="105" y1="30" x2="115" y2="25" />
+                        <line x1="105" y1="30" x2="105" y2="20" />
+                        <!-- Third eye -->
+                        <ellipse cx="150" cy="55" rx="3" ry="1.5" />
+                    </g>
+                    <!-- Parvati (right figure) -->
+                    <g class="parvati-figure" stroke="#1a1a1a" stroke-width="1.2" fill="none">
+                        <!-- Head -->
+                        <circle cx="220" cy="65" r="16" />
+                        <!-- Hair -->
+                        <path d="M204,60 Q200,40 210,35 Q220,30 225,40" />
+                        <path d="M236,60 Q240,45 235,38" />
+                        <!-- Body -->
+                        <path d="M208,81 Q205,110 210,150" />
+                        <path d="M232,81 Q235,110 230,150" />
+                    </g>
+                    <!-- Seated base / lotus -->
+                    <g class="lotus-base" stroke="#1a1a1a" stroke-width="1" fill="none">
+                        <path d="M100,170 Q150,155 200,150 Q250,145 300,160" />
+                        <path d="M95,175 Q150,160 200,155 Q250,150 305,165" />
+                        <path d="M85,185 Q100,170 120,178 Q140,170 155,180" />
+                        <path d="M250,178 Q270,170 285,180" />
+                        <!-- Water lines -->
+                        <path d="M60,200 Q100,195 150,198 Q200,201 250,196 Q300,193 340,200" stroke-width="0.8" />
+                        <path d="M70,210 Q120,207 170,210 Q220,213 270,208 Q320,206 350,212" stroke-width="0.6" />
+                    </g>
+                </svg>
+            </div>
+
+            <!-- Clouds bottom -->
+            <svg class="cloud cloud-bl" viewBox="0 0 200 100" width="200" height="100">
+                <path d="M10,80 Q10,50 30,45 Q30,20 60,20 Q90,20 90,45 Q110,40 120,55 Q130,55 130,70 Q130,80 110,80 Z"
+                    fill="none" stroke="#1a1a1a" stroke-width="1.5" />
+            </svg>
+            <svg class="cloud cloud-br" viewBox="0 0 200 100" width="200" height="100">
+                <path d="M10,80 Q10,50 30,45 Q30,20 60,20 Q90,20 90,45 Q110,40 120,55 Q130,55 130,70 Q130,80 110,80 Z"
+                    fill="none" stroke="#1a1a1a" stroke-width="1.5" />
+            </svg>
+        </section>
+
+        <!-- ===== SECTION 2: COUPLE INTRODUCTION ===== -->
+        <section class="section couple-section" id="couple">
+            <div class="watermark">RIVAAH</div>
+
+            <p class="intro-text" id="introText">Join us in celebrating love<br>&amp; blessing the beautiful union<br>of the couple.</p>
+
+            <h2 class="name bride-name" id="brideName">Aditi</h2>
+
+            <p class="family-text" id="brideFamily">
+                Grand D/o Late Mrs. Devi Singh<br>
+                &amp; Late Mr. JagPrakash Singh<br>
+                D/o Mrs. Alka Singh &amp; Mr. Vikash Singh
+            </p>
+
+            <div class="ampersand">&amp;</div>
+
+            <h2 class="name groom-name" id="groomName">Samrat</h2>
+
+            <p class="family-text" id="groomFamily">
+                Grand S/o Late Mrs. Sarwati Devi Singh<br>
+                &amp; Late Mr. Ramji Lal Singh<br>
+                S/o Mrs. SantoshDevi Singh &amp;<br>
+                Late Mr. Bishwambhar Dayal Singh
+            </p>
+        </section>
+
+        <!-- ===== SECTION 3: MEHENDI & SANGEET ===== -->
+        <section class="section events-section" id="events-1">
+            <div class="watermark">RIVAAH</div>
+
+            <!-- Mehendi -->
+            <div class="event-card">
+                <div class="event-date">
+                    <span class="month" id="event1Month">December</span>
+                    <span class="day" id="event1Day">10</span>
+                    <span class="year" id="event1Year">2026</span>
+                    <span class="time" id="event1Time">19:30</span>
+                    <span class="weekday" id="event1Weekday">Thursday</span>
+                </div>
+                <h2 class="event-title" id="event1Title">Mehendi</h2>
+                <p class="event-subtitle"><em id="event1Subtitle">The one where it begins</em></p>
+                <div class="event-divider"></div>
+                <p class="event-venue" id="event1Venue">Poolside, Lawn</p>
+                <p class="event-attire"><em id="event1Attire">Attire: Colorful Indian</em></p>
+            </div>
+
+            <!-- Damru divider -->
+            <div class="damru-divider">
+                <svg viewBox="0 0 120 50" width="120" height="50">
+                    <ellipse cx="40" cy="25" rx="22" ry="18" stroke="#1a1a1a" stroke-width="1.2" fill="none" />
+                    <line x1="22" y1="18" x2="10" y2="10" stroke="#1a1a1a" stroke-width="1" />
+                    <line x1="22" y1="32" x2="10" y2="40" stroke="#1a1a1a" stroke-width="1" />
+                    <path d="M58,15 Q70,25 58,35" stroke="#1a1a1a" stroke-width="1" fill="none" />
+                    <circle cx="40" cy="25" r="5" stroke="#1a1a1a" stroke-width="0.8" fill="none" />
+                    <path d="M15,10 Q20,5 25,10" stroke="#1a1a1a" stroke-width="0.8" fill="none" />
+                    <path d="M15,40 Q20,45 25,40" stroke="#1a1a1a" stroke-width="0.8" fill="none" />
+                </svg>
+            </div>
+
+            <!-- Sangeet -->
+            <div class="event-card">
+                <div class="event-date">
+                    <span class="month" id="event2Month">December</span>
+                    <span class="day" id="event2Day">10</span>
+                    <span class="year" id="event2Year">2026</span>
+                    <span class="time" id="event2Time">21:00</span>
+                    <span class="weekday" id="event2Weekday">Thursday</span>
+                </div>
+                <h2 class="event-title" id="event2Title">Sangeet</h2>
+                <p class="event-subtitle"><em id="event2Subtitle">The night of sparkle</em></p>
+                <div class="event-divider"></div>
+                <p class="event-venue" id="event2Venue">Banquet Hall</p>
+                <p class="event-attire"><em id="event2Attire">Attire: Glam &amp; Sparkle</em></p>
+            </div>
+
+            <!-- Nandi illustration -->
+            <div class="nandi-illustration">
+                <svg viewBox="0 0 250 250" width="220" height="220">
+                    <!-- Nandi bull body -->
+                    <g stroke="#1a1a1a" stroke-width="1.2" fill="none">
+                        <!-- Body -->
+                        <ellipse cx="125" cy="155" rx="70" ry="50" />
+                        <!-- Head -->
+                        <ellipse cx="125" cy="95" rx="35" ry="28" />
+                        <!-- Horns -->
+                        <path d="M100,75 Q80,50 85,40 Q90,35 95,45" />
+                        <path d="M150,75 Q170,50 165,40 Q160,35 155,45" />
+                        <!-- Ears -->
+                        <ellipse cx="88" cy="90" rx="12" ry="8" transform="rotate(-20,88,90)" />
+                        <ellipse cx="162" cy="90" rx="12" ry="8" transform="rotate(20,162,90)" />
+                        <!-- Eyes -->
+                        <circle cx="110" cy="92" r="5" />
+                        <circle cx="140" cy="92" r="5" />
+                        <circle cx="110" cy="92" r="2" fill="#1a1a1a" />
+                        <circle cx="140" cy="92" r="2" fill="#1a1a1a" />
+                        <!-- Nose/mouth -->
+                        <path d="M115,105 Q125,112 135,105" />
+                        <!-- Nose ring -->
+                        <circle cx="125" cy="108" r="4" stroke-width="0.8" />
+                        <!-- Third eye -->
+                        <ellipse cx="125" cy="72" rx="2" ry="4" />
+                        <!-- Legs -->
+                        <path d="M80,190 L75,230" />
+                        <path d="M95,195 L90,230" />
+                        <path d="M155,195 L160,230" />
+                        <path d="M170,190 L175,230" />
+                        <!-- Tail -->
+                        <path d="M195,155 Q210,150 215,145" />
+                        <path d="M215,145 Q220,148 218,152" />
+                        <!-- Neck decoration / bell -->
+                        <path d="M100,120 Q125,140 150,120" />
+                        <circle cx="125" cy="138" r="8" />
+                        <path d="M122,138 L128,138" />
+                        <path d="M125,133 L125,143" />
+                        <!-- Garlands -->
+                        <path d="M105,125 Q115,130 125,128 Q135,130 145,125" />
+                        <circle cx="110" cy="128" r="2" />
+                        <circle cx="118" cy="130" r="2" />
+                        <circle cx="125" cy="130" r="2" />
+                        <circle cx="132" cy="130" r="2" />
+                        <circle cx="140" cy="128" r="2" />
+                    </g>
+                </svg>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 4: HALDI & WEDDING ===== -->
+        <section class="section events-section" id="events-2">
+            <div class="watermark">RIVAAH</div>
+
+            <!-- Haldi -->
+            <div class="event-card">
+                <div class="event-date">
+                    <span class="month" id="event3Month">December</span>
+                    <span class="day" id="event3Day">11</span>
+                    <span class="year" id="event3Year">2026</span>
+                    <span class="time" id="event3Time">11:30</span>
+                    <span class="weekday" id="event3Weekday">Friday</span>
+                </div>
+                <h2 class="event-title" id="event3Title">Haldi</h2>
+                <p class="event-subtitle"><em id="event3Subtitle">Splash of Haldi &amp; Lots of fun</em></p>
+                <div class="event-divider"></div>
+                <p class="event-venue" id="event3Venue">Lawnside</p>
+                <p class="event-attire"><em id="event3Attire">Attire: Hues of Sunshine</em></p>
+            </div>
+
+            <!-- Damru divider -->
+            <div class="damru-divider">
+                <svg viewBox="0 0 120 50" width="120" height="50">
+                    <ellipse cx="40" cy="25" rx="22" ry="18" stroke="#1a1a1a" stroke-width="1.2" fill="none" />
+                    <line x1="22" y1="18" x2="10" y2="10" stroke="#1a1a1a" stroke-width="1" />
+                    <line x1="22" y1="32" x2="10" y2="40" stroke="#1a1a1a" stroke-width="1" />
+                    <path d="M58,15 Q70,25 58,35" stroke="#1a1a1a" stroke-width="1" fill="none" />
+                    <circle cx="40" cy="25" r="5" stroke="#1a1a1a" stroke-width="0.8" fill="none" />
+                </svg>
+            </div>
+
+            <!-- Wedding -->
+            <div class="event-card">
+                <div class="event-date">
+                    <span class="month" id="event4Month">December</span>
+                    <span class="day" id="event4Day">11</span>
+                    <span class="year" id="event4Year">2026</span>
+                    <span class="time" id="event4Time">20:00</span>
+                    <span class="weekday" id="event4Weekday">Friday</span>
+                </div>
+                <h2 class="event-title" id="event4Title">Wedding</h2>
+                <p class="event-subtitle"><em id="event4Subtitle">The night of promises</em></p>
+                <div class="event-divider"></div>
+                <p class="event-venue" id="event4Venue">Royal Ground</p>
+                <p class="event-attire"><em id="event4Attire">Attire: Traditional Indian</em></p>
+            </div>
+
+            <!-- Shivling illustration -->
+            <div class="shivling-illustration">
+                <svg viewBox="0 0 200 280" width="180" height="250">
+                    <g stroke="#1a1a1a" stroke-width="1.2" fill="none">
+                        <!-- Base (Yoni) -->
+                        <ellipse cx="100" cy="240" rx="60" ry="18" />
+                        <path d="M45,235 Q45,220 55,215" />
+                        <path d="M155,235 Q155,220 145,215" />
+                        <path d="M55,215 Q100,205 145,215" />
+                        <!-- Lingam -->
+                        <path d="M80,215 L80,120 Q80,90 100,90 Q120,90 120,120 L120,215" />
+                        <!-- Top -->
+                        <path d="M80,90 Q80,70 100,60 Q120,70 120,90" />
+                        <!-- Flowers on top -->
+                        <circle cx="85" cy="68" r="6" />
+                        <circle cx="100" cy="62" r="7" />
+                        <circle cx="115" cy="68" r="6" />
+                        <circle cx="85" cy="68" r="3" />
+                        <circle cx="100" cy="62" r="3.5" />
+                        <circle cx="115" cy="68" r="3" />
+                        <!-- Garland strings -->
+                        <path d="M82,100 Q70,120 75,150 Q80,180 85,210" />
+                        <path d="M118,100 Q130,120 125,150 Q120,180 115,210" />
+                        <!-- Garland beads -->
+                        <circle cx="77" cy="125" r="4" />
+                        <circle cx="75" cy="145" r="4" />
+                        <circle cx="76" cy="165" r="4" />
+                        <circle cx="80" cy="185" r="4" />
+                        <circle cx="83" cy="200" r="4" />
+                        <circle cx="123" cy="125" r="4" />
+                        <circle cx="125" cy="145" r="4" />
+                        <circle cx="124" cy="165" r="4" />
+                        <circle cx="120" cy="185" r="4" />
+                        <circle cx="117" cy="200" r="4" />
+                        <!-- Bell -->
+                        <path d="M100,220 L100,235" />
+                        <path d="M93,235 Q100,245 107,235" />
+                        <line x1="93" y1="235" x2="107" y2="235" />
+                        <circle cx="100" cy="248" r="3" />
+                        <!-- Flower garland bottom -->
+                        <path d="M70,225 Q85,220 100,225 Q115,220 130,225" />
+                        <circle cx="75" cy="223" r="3" />
+                        <circle cx="85" cy="221" r="3" />
+                        <circle cx="95" cy="220" r="3" />
+                        <circle cx="105" cy="220" r="3" />
+                        <circle cx="115" cy="221" r="3" />
+                        <circle cx="125" cy="223" r="3" />
+                    </g>
+                </svg>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 5: COUNTDOWN & RSVP ===== -->
+        <section class="section final-section" id="final">
+            <div class="watermark">RIVAAH</div>
+
+            <!-- Countdown Box -->
+            <div class="countdown-box">
+                <div class="countdown-title">COUNTDOWN</div>
+                <div class="countdown-timer" id="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">00</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">00</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">00</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">00</span>
+                        <span class="countdown-label">Seconds</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Location -->
+            <div class="location-section">
+                <h3 class="location-name" id="locationName">Royal Ground, City Name</h3>
+                <a href="#" class="map-link" id="mapLink" target="_blank" rel="noopener noreferrer">MAP LINK</a>
+            </div>
+
+            <!-- RSVP -->
+            <div class="rsvp-section" id="rsvpSection">
+                <h2 class="rsvp-heading">RSVP</h2>
+                <form id="rsvpForm" class="rsvp-form">
+                    <div class="form-group">
+                        <label for="guestName">Name</label>
+                        <input type="text" id="guestName" name="guestName" required placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="guestCount">Number of Guests</label>
+                        <input type="number" id="guestCount" name="guestCount" min="1" max="10" required value="1">
+                    </div>
+                    <div class="form-group radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="attendance" value="attending" required checked>
+                            <span>Joyfully Attending</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="attendance" value="not-attending">
+                            <span>Regretfully Declining</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="rsvp-submit-btn" id="rsvpSubmitBtn">Submit RSVP</button>
+                </form>
+                <div id="rsvpMessage" class="rsvp-message hidden"></div>
+            </div>
+
+            <!-- Closing -->
+            <div class="closing-section">
+                <p class="closing-text"><em id="closingText">We are excited to share<br>our celebration with you!</em></p>
+                <p class="family-signature" id="closingSignature">The Singh Family</p>
+            </div>
+
+            <!-- Romantic Shiva-Parvati mountain illustration -->
+            <div class="romantic-illustration">
+                <svg viewBox="0 0 400 300" width="350" height="260">
+                    <g stroke="#1a1a1a" stroke-width="1" fill="none">
+                        <!-- Mountains -->
+                        <path
+                            d="M0,200 Q50,100 100,150 Q150,80 200,120 Q250,60 300,100 Q350,70 400,130 L400,300 L0,300 Z" />
+                        <path
+                            d="M0,220 Q80,130 120,170 Q180,110 220,150 Q280,90 320,130 Q370,100 400,150 L400,300 L0,300 Z" />
+                        <!-- Seated figures -->
+                        <!-- Shiva -->
+                        <circle cx="180" cy="180" r="12" />
+                        <path d="M168,192 Q165,220 160,250" />
+                        <path d="M192,192 Q195,220 200,250" />
+                        <!-- Parvati -->
+                        <circle cx="220" cy="182" r="11" />
+                        <path d="M209,193 Q207,220 205,250" />
+                        <path d="M231,193 Q233,220 235,250" />
+                        <!-- Seated platform -->
+                        <path d="M140,255 Q180,248 220,250 Q260,252 280,255" />
+                        <path d="M135,260 Q180,253 220,255 Q260,257 285,260" />
+                        <path d="M145,265 Q180,258 220,260 Q260,262 275,265" />
+                        <!-- Flowers/decorations -->
+                        <circle cx="160" cy="170" r="4" />
+                        <circle cx="170" cy="168" r="3" />
+                        <circle cx="230" cy="170" r="4" />
+                        <circle cx="240" cy="168" r="3" />
+                        <!-- Stars/flowers in mountains -->
+                        <path d="M100,130 L105,125 L100,120 L95,125 Z" />
+                        <path d="M150,100 L153,96 L150,92 L147,96 Z" />
+                        <path d="M250,85 L253,81 L250,77 L247,81 Z" />
+                        <path d="M300,90 L304,85 L300,80 L296,85 Z" />
+                        <path d="M350,100 L354,95 L350,90 L346,95 Z" />
+                        <!-- Roses/bottom flowers -->
+                        <circle cx="120" cy="240" r="5" />
+                        <circle cx="130" cy="238" r="4" />
+                        <circle cx="140" cy="240" r="5" />
+                        <circle cx="260" cy="238" r="5" />
+                        <circle cx="270" cy="240" r="4" />
+                        <circle cx="280" cy="238" r="5" />
+                    </g>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Floating lotus -->
+        <div class="floating-lotus lotus-1" id="lotus1">
+            <svg viewBox="0 0 60 60" width="40" height="40">
+                <g stroke="#1a1a1a" stroke-width="0.8" fill="none">
+                    <path d="M30,50 Q25,40 20,35 Q15,30 20,25 Q25,20 30,25" />
+                    <path d="M30,50 Q35,40 40,35 Q45,30 40,25 Q35,20 30,25" />
+                    <path d="M30,50 Q22,38 15,32 Q10,28 15,22 Q20,18 25,28" />
+                    <path d="M30,50 Q38,38 45,32 Q50,28 45,22 Q40,18 35,28" />
+                    <path d="M30,50 Q28,35 28,25 Q30,15 30,15 Q30,15 32,25 Q32,35 30,50" />
+                    <circle cx="30" cy="22" r="4" />
+                </g>
+            </svg>
+        </div>
+        <div class="floating-lotus lotus-2" id="lotus2">
+            <svg viewBox="0 0 60 60" width="35" height="35">
+                <g stroke="#1a1a1a" stroke-width="0.8" fill="none">
+                    <path d="M30,50 Q25,40 20,35 Q15,30 20,25 Q25,20 30,25" />
+                    <path d="M30,50 Q35,40 40,35 Q45,30 40,25 Q35,20 30,25" />
+                    <path d="M30,50 Q22,38 15,32 Q10,28 15,22 Q20,18 25,28" />
+                    <path d="M30,50 Q38,38 45,32 Q50,28 45,22 Q40,18 35,28" />
+                    <path d="M30,50 Q28,35 28,25 Q30,15 30,15 Q30,15 32,25 Q32,35 30,50" />
+                    <circle cx="30" cy="22" r="4" />
+                </g>
+            </svg>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
